@@ -16,50 +16,48 @@
  *
  */
 
-package top.gradle.rapid;
+package com.example.baselib;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.baselib.BaseActivity;
 
 /**
  * <pre>
  *     @author: Created by Phantom
  *     @eamil : phantom@gradle.top‍
  *     @time  : 2018/1/24.
- *     @desc  : MainActivity
+ *     @desc  : IBaseView
  * </pre>
  */
-public class MainActivity extends BaseActivity {
+public interface IBaseView extends View.OnClickListener {
+    /**
+     * 初始化数据
+     *
+     * @param bundle 传递过来的 bundle
+     */
+    void initData(final Bundle bundle);
 
-    TextView textView;
+    /**
+     * 绑定布局
+     *
+     * @return 布局 Id
+     */
+    int bindLayout();
 
-    @Override
-    public void initData(Bundle bundle) {
+    /**
+     * 初始化 view
+     */
+    void initView(final Bundle savedInstanceState, final View view);
 
-    }
+    /**
+     * 业务操作
+     */
+    void doBusiness();
 
-    @Override
-    public int bindLayout() {
-        return R.layout.activity_main;
-    }
-
-    @Override
-    public void initView(Bundle savedInstanceState, View view) {
-        textView = f(R.id.tv_hello);
-        textView.setOnClickListener(this);
-    }
-
-    @Override
-    public void doBusiness() {
-
-    }
-
-    @Override
-    public void onWidgetClick(View view) {
-        Toast.makeText(MainActivity.this, "hello github", Toast.LENGTH_SHORT).show();
-    }
+    /**
+     * 视图点击事件
+     *
+     * @param view 视图
+     */
+    void onWidgetClick(final View view);
 }
