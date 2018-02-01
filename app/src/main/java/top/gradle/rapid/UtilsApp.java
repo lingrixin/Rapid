@@ -18,9 +18,18 @@
 
 package top.gradle.rapid;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+
+import com.squareup.leakcanary.LeakCanary;
+
 import top.gradle.baselib.BaseApplication;
+import top.gradle.utils.CrashUtils;
 import top.gradle.utils.LogUtils;
 import top.gradle.utils.PermissionUtils;
+import top.gradle.utils.Utils;
 
 /**
  * <pre>
@@ -30,12 +39,14 @@ import top.gradle.utils.PermissionUtils;
  *     @desc  : UtilsApp
  * </pre>
  */
-public class UtilsApp extends BaseApplication{
+public class UtilsApp extends BaseApplication {
 
     @Override
     protected void setup() {
-
+        Utils.init(this);
+        initLeakCanary();
         initLog();
+        initCrash();
         LogUtils.d(PermissionUtils.getPermissions());
     }
 
@@ -57,4 +68,29 @@ public class UtilsApp extends BaseApplication{
                 .setStackDeep(1);// log 栈深度，默认为 1
         LogUtils.d(config.toString());
     }
+
+    private void initLeakCanary() {
+        // 内存泄露检查工具
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
+    }
+
+    private void initCrash() {
+        CrashUtils.init(new CrashUtils.OnCrashListener() {
+            @Override
+            public void onCrash(Throwable e) {
+                if (BuildConfig.DEBUG) {
+                    e.printStackTrace();
+                } else {
+                    Utils.restartApp();
+                }
+            }
+        });
+    }
+
+
 }

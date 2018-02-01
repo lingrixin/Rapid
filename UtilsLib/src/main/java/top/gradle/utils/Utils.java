@@ -20,7 +20,11 @@ package top.gradle.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.Application;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
@@ -149,6 +153,19 @@ public class Utils {
         if (sTopActivityWeakRef == null || !activity.equals(sTopActivityWeakRef.get())) {
             sTopActivityWeakRef = new WeakReference<>(activity);
         }
+    }
+
+    public static void restartApp() {
+        Intent intent = new Intent();
+        intent.setClassName("top.gradle.rapid", "top.gradle.rapid.activity.MainActivity");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent restartIntent = PendingIntent.getActivity(Utils.getApp(), 0, intent, 0);
+        AlarmManager manager = (AlarmManager) Utils.getApp().getSystemService(Context.ALARM_SERVICE);
+        if (manager == null) return;
+        manager.set(AlarmManager.RTC, System.currentTimeMillis() + 500, restartIntent);
+        ActivityUtils.finishAllActivities();
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
     }
 
 }

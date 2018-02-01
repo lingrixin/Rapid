@@ -50,7 +50,6 @@ public abstract class BaseApplication extends Application {
         super.onCreate();
         sInstance = this;
         registerActivityLifecycleCallbacks(mCallbacks);
-        Utils.init(sInstance);
         setup();
     }
 

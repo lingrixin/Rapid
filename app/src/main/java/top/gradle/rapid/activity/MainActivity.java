@@ -16,7 +16,7 @@
  *
  */
 
-package top.gradle.rapid;
+package top.gradle.rapid.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +28,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 
 import top.gradle.baselib.BaseActivity;
+import top.gradle.rapid.R;
+import top.gradle.rapid.Student;
 
 /**
  * <pre>
@@ -62,6 +64,7 @@ public class MainActivity extends BaseActivity {
         Student student = JSON.parseObject(str,new TypeReference<Student>(){});
         textView1.setText(student.toString());
         textView.setOnClickListener(this);
+
     }
 
     @Override
