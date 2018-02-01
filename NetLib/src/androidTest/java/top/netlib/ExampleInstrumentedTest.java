@@ -16,7 +16,7 @@
  *
  */
 
-package com.example.baselib;
+package top.netlib;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -39,6 +39,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.baselib.test", appContext.getPackageName());
+        assertEquals("wifilist.netlib.test", appContext.getPackageName());
     }
 }

@@ -23,7 +23,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.baselib.BaseActivity;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
+
+import top.gradle.baselib.BaseActivity;
 
 /**
  * <pre>
@@ -36,6 +40,8 @@ import com.example.baselib.BaseActivity;
 public class MainActivity extends BaseActivity {
 
     TextView textView;
+
+    private String str= "{\"name\":\"phantom\",\"age\":\"24\",\"emailAddress\":\"lingrixin@live.cn\"}";
 
     @Override
     public void initData(Bundle bundle) {
@@ -50,6 +56,11 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initView(Bundle savedInstanceState, View view) {
         textView = f(R.id.tv_hello);
+        textView.setText(str);
+        TextView textView1 = f(R.id.tv_hello1);
+//        Student student = new Gson().fromJson(str,Student.class);
+        Student student = JSON.parseObject(str,new TypeReference<Student>(){});
+        textView1.setText(student.toString());
         textView.setOnClickListener(this);
     }
 

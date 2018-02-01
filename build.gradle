@@ -40,7 +40,8 @@ ext {
     // App dependencies
     support_version = '26.1.0'
     leakcanary_version = '1.5.4'
-
+    gson_version = '2.8.2'
+    fastjson_version = '1.1.67.android'
 
     junit_version = '4.12'
 

@@ -37,7 +37,6 @@ android {
 
 dependencies {
     testImplementation "junit:junit:$junit_version"
-    implementation project(':UtilsLib')
-    compileOnly "com.android.support:appcompat-v7:$support_version"
-    compileOnly "com.android.support:design:$support_version"
+    compile "com.google.code.gson:gson:$gson_version"
+    compile "com.alibaba:fastjson:$fastjson_version"
 }

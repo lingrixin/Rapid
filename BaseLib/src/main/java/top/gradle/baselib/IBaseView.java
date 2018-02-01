@@ -16,7 +16,7 @@
  *
  */
 
-package com.example.baselib;
+package top.gradle.baselib;
 
 import android.os.Bundle;
 import android.view.View;
