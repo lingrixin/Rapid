@@ -16,47 +16,17 @@
  *
  */
 
-package top.gradle.rapid.activity;
-
-import android.os.Bundle;
-import android.view.View;
+package top.gradle.rapid.base;
 
 import top.gradle.baselib.BaseActivity;
-import top.gradle.rapid.R;
 
 /**
  * <pre>
  *     @author: Created by Phantom
  *     @eamil : phantom@gradle.top‍
- *     @time  : 2018/1/24.
- *     @desc  : MainActivity
+ *     @time  : 2018/2/2.
+ *     @desc  : BaseDrawerActivity
  * </pre>
  */
-public class MainActivity extends BaseActivity {
-
-
-    @Override
-    public void initData(Bundle bundle) {
-
-    }
-
-    @Override
-    public int bindLayout() {
-        return R.layout.activity_main;
-    }
-
-    @Override
-    public void initView(Bundle savedInstanceState, View view) {
-
-    }
-
-    @Override
-    public void doBusiness() {
-
-    }
-
-    @Override
-    public void onWidgetClick(View view) {
-
-    }
+public abstract class BaseDrawerActivity extends BaseActivity {
 }
