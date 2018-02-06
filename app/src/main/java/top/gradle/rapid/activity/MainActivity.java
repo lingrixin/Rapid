@@ -19,10 +19,16 @@
 package top.gradle.rapid.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import top.gradle.baselib.BaseActivity;
 import top.gradle.rapid.R;
+import top.gradle.rapid.base.BaseDrawerActivity;
+import top.gradle.utils.BarUtils;
+import top.gradle.utils.ToastUtils;
 
 /**
  * <pre>
@@ -32,7 +38,7 @@ import top.gradle.rapid.R;
  *     @desc  : MainActivity
  * </pre>
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseDrawerActivity {
 
 
     @Override
@@ -47,7 +53,20 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState, View view) {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        View fakeStatusBar = findViewById(R.id.fake_status_bar);
+        CollapsingToolbarLayout ctl = findViewById(R.id.ctl);
+        setSupportActionBar(toolbar);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,
+                rootLayout,
+                toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close);
+        rootLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
+        BarUtils.setStatusBarAlpha4Drawer(this,rootLayout,fakeStatusBar,0,false);
+        BarUtils.addMarginTopEqualStatusBarHeight(toolbar);
     }
 
     @Override
@@ -58,5 +77,9 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onWidgetClick(View view) {
 
+    }
+
+    public void hiddenClick(View view){
+        ToastUtils.showShort("what are you doing");
     }
 }

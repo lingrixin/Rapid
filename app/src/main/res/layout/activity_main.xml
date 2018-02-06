@@ -41,7 +41,7 @@
                 android:layout_height="match_parent"
                 android:padding="@dimen/spacing_16"
                 android:scaleType="fitCenter"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/weak_reference"
                 app:layout_collapseMode="parallax" />
 
             <android.support.v7.widget.Toolbar
@@ -75,7 +75,7 @@
                 style="@style/WideBtnStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="coreUtilClick"
+                android:onClick="hiddenClick"
                 android:text="@string/hidden_entrance" />
 
 

@@ -3,4 +3,12 @@
 
     <string name="author">Phantom</string>
     <string name="hidden_entrance">Hidden_Entrance</string>
+
+    <string name="navigation_drawer_open">navigation_drawer_open</string>
+    <string name="navigation_drawer_close">navigation_drawer_close</string>
+
+    <string name="git_hub">GitHub</string>
+    <string name="blog">Blog</string>
+
+    <string name="demo_of_rapid">Demo of Rapid</string>
 </resources>
