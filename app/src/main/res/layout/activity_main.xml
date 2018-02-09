@@ -78,6 +78,13 @@
                 android:onClick="hiddenClick"
                 android:text="@string/hidden_entrance" />
 
+            <Button
+                style="@style/WideBtnStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="mvcDemo"
+                android:text="@string/mvc_demo" />
+
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

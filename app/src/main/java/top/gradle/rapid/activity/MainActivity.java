@@ -24,9 +24,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import top.gradle.baselib.BaseActivity;
 import top.gradle.rapid.R;
 import top.gradle.rapid.base.BaseDrawerActivity;
+import top.gradle.rapid.mvc.Controller.MVCDemoActivity;
 import top.gradle.utils.BarUtils;
 import top.gradle.utils.ToastUtils;
 
@@ -65,7 +65,7 @@ public class MainActivity extends BaseDrawerActivity {
         rootLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        BarUtils.setStatusBarAlpha4Drawer(this,rootLayout,fakeStatusBar,0,false);
+        BarUtils.setStatusBarAlpha4Drawer(this, rootLayout, fakeStatusBar, 0, false);
         BarUtils.addMarginTopEqualStatusBarHeight(toolbar);
     }
 
@@ -79,7 +79,11 @@ public class MainActivity extends BaseDrawerActivity {
 
     }
 
-    public void hiddenClick(View view){
+    public void hiddenClick(View view) {
         ToastUtils.showShort("what are you doing");
+    }
+
+    public void mvcDemo(View view) {
+        MVCDemoActivity.start(this);
     }
 }
