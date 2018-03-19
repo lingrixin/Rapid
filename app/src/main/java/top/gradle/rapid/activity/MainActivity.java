@@ -86,4 +86,9 @@ public class MainActivity extends BaseDrawerActivity {
     public void mvcDemo(View view) {
         MVCDemoActivity.start(this);
     }
+
+    public void sendNotification(View view){
+//        NotificationTestActivity.start(this);
+        AnimateActivity.start(this);
+    }
 }

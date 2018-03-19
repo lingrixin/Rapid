@@ -22,5 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".mvc.Controller.MVCDemoActivity"/>
+        <activity android:name=".activity.NotificationTestActivity"/>
+        <activity android:name=".activity.AnimateActivity"/>
     </application>
 </manifest>
